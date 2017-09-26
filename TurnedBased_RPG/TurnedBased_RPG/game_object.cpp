@@ -26,7 +26,8 @@ SDL_Texture* Game_object::load_texture()
 
 void Game_object::render()
 {
-	SDL_RenderCopy(m_renderer, m_texture, NULL, &m_texture_position);
+	//SDL_RenderCopy(m_renderer, m_texture, NULL, &m_texture_position);
+	SDL_RenderCopyEx(m_renderer, m_texture, NULL, &m_texture_position, 0, 0, SDL_RendererFlip::SDL_FLIP_HORIZONTAL);
 }
 
 void Game_object::set_transform(Transform transform)

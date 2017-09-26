@@ -1,6 +1,8 @@
 #include "game_loop.h"
 #include "game_object.h"
+#include "text_manager.h"
 #include <memory>
+
 
 int main(int argc, char* argv[])
 {
@@ -8,6 +10,7 @@ int main(int argc, char* argv[])
 	const int delay_time = 1000 / FPS;
 	Uint32 start_time;
 	Uint32 current_time;
+	Text_manager* txt = nullptr;
 
 	std::unique_ptr<Game_loop> game = std::make_unique<Game_loop>();
 
@@ -15,15 +18,18 @@ int main(int argc, char* argv[])
 
 	std::unique_ptr<Game_object> player = std::make_unique<Game_object>("Art/knight.png", renderer, 400-164/2, 400, 164, 164);
 	SDL_Texture* player_texture = player->load_texture();
-
+	SDL_Texture* text_texture = txt->load_test("Font/712_serif.ttf", renderer);
 	while (game->is_running())
 	{
 		start_time = SDL_GetTicks();
 
-
+		
+		
 		game->input();
 		//game->update();
 		game->render();
+
+		txt->render(renderer, text_texture);
 
 		player->render();
 
