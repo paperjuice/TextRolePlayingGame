@@ -22,6 +22,22 @@ int main(int argc, char* argv[])
 	std::unique_ptr<Game_object> main_menu_texture = std::make_unique<Game_object>("Art/Static/main_menu_border.png", renderer, 0, 0, 800, 600);
 	SDL_Texture* main_menu_border_texture = main_menu_texture->load_texture();
 
+
+	SDL_Surface* temp_fire = IMG_Load("Art/Static/fire_lantern.png");
+	SDL_Texture* fire_lantern_texture = SDL_CreateTextureFromSurface(renderer, temp_fire);
+	SDL_FreeSurface(temp_fire);
+	SDL_Rect fire_sprite;
+	SDL_Rect fire_pos;
+	int texture_width =0,texture_height = 0;
+	int temp_x = 0;
+	int temp_y = 0;
+	SDL_QueryTexture(fire_lantern_texture, NULL, NULL, &texture_width, &texture_height);
+	fire_sprite.x = fire_sprite.y = 32;
+	fire_sprite.w = texture_width / 2;
+	fire_sprite.h = texture_height / 2;
+
+
+
 	SDL_Texture* text_texture = txt->load_text("Font/712_serif.ttf", renderer);
 	while (game->is_running())
 	{
@@ -34,6 +50,35 @@ int main(int argc, char* argv[])
 		main_menu_texture->render();
 
 		SDL_RenderPresent(renderer);
+
+
+		
+		//---------------------
+		
+		SDL_RenderCopy(renderer, fire_lantern_texture, NULL, NULL);
+		
+		
+		/*if (temp_x == 1)
+		{
+			fire_sprite.x += 32;
+			if (temp_x == 1)
+			{
+				++temp_y;
+				temp_x = 0;
+				fire_sprite.y += 32;
+				if (temp_y == 1)
+				{
+					temp_y = 0;
+					fire_sprite.y = 0;
+				}
+
+			}
+		}
+		++temp_x;*/
+
+		//-------------------
+
+
 
 		current_time = SDL_GetTicks() - start_time;
 		if (current_time < delay_time){
