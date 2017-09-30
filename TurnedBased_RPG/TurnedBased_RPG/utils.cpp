@@ -2,8 +2,8 @@
 
 Utils::~Utils()
 {
-	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(m_window);
+	SDL_DestroyRenderer(m_renderer);
 	SDL_Quit();
 }
 
@@ -18,14 +18,29 @@ SDL_Renderer* Utils::init_SDL(const char* TITLE,
 		std::cout << "SDL failed to initialize" << std::endl;
 	}
 	Uint32 flags = (is_fullscreen) ? SDL_WINDOW_FULLSCREEN : SDL_WINDOW_SHOWN;
-	window = SDL_CreateWindow(TITLE, POS_X, POS_Y, WIDTH, HEIGHT, flags);
-	if (window == nullptr){
+	m_window = SDL_CreateWindow(TITLE, POS_X, POS_Y, WIDTH, HEIGHT, flags);
+	if (m_window == nullptr){
 		std::cout << "Window failed to create" << std::endl;
 	}
 
-	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC);
-	if (renderer == nullptr) {
+	m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED|SDL_RENDERER_PRESENTVSYNC);
+	if (m_renderer == nullptr) {
 		std::cout << "Renderer failed to initialize" << std::endl;
 	}
-	return renderer;
+	return m_renderer;
+}
+
+bool Utils::input(SDL_Keycode key)
+{
+	if (SDL_PollEvent(&m_event) != 0)
+	{
+		if (m_event.type == SDL_KEYDOWN)
+		{
+			if (m_event.key.keysym.sym == key)
+			{
+				return 1;
+			}
+		}
+	}
+	return 0;
 }

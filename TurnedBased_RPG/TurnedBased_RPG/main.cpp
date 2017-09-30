@@ -9,8 +9,25 @@ int main(int argc, char* argv[])
 	const int WIDTH = 620;
 	const int HEIGHT = 400;
 
+	bool is_running = true;
+
 	std::unique_ptr<Utils> utils = std::make_unique<Utils>();
 	SDL_Renderer* renderer = utils->init_SDL(TITLE, POS_X, POS_Y, WIDTH, HEIGHT, false);
+
+
+	while(is_running)
+	{
+	
+		if (utils->input(SDLK_q))
+		{
+			is_running = false;
+		}
+
+		SDL_SetRenderDrawColor(renderer, 8, 12, 32, 255);
+		SDL_RenderClear(renderer);
+		SDL_RenderPresent(renderer);
+	}
+
 
 
 	return 0;

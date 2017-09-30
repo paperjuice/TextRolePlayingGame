@@ -14,9 +14,12 @@ public:
 		                   int HEIGHT,
 		                   bool is_fullscreen);
 
+	bool input(SDL_Keycode);
+
 private:
-	SDL_Window* window = nullptr;
-	SDL_Renderer* renderer = nullptr;
+	SDL_Window* m_window = nullptr;
+	SDL_Renderer* m_renderer = nullptr;
+	SDL_Event m_event;
 };
 
 
