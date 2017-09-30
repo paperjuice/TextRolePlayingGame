@@ -1,5 +1,6 @@
 #include <memory>
 #include "utils.h"
+#include "entity.h"
 
 int main(int argc, char* argv[])
 {
@@ -13,7 +14,6 @@ int main(int argc, char* argv[])
 
 	std::unique_ptr<Utils> utils = std::make_unique<Utils>();
 	SDL_Renderer* renderer = utils->init_SDL(TITLE, POS_X, POS_Y, WIDTH, HEIGHT, false);
-
 
 	while(is_running)
 	{
