@@ -144,21 +144,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="entity.cpp" />
-    <ClCompile Include="game_loop.cpp" />
-    <ClCompile Include="game_object.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="sprite.cpp" />
-    <ClCompile Include="sprite.h" />
-    <ClCompile Include="texture_manager.cpp" />
     <ClCompile Include="text_manager.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="entity.h" />
-    <ClInclude Include="game_loop.h" />
-    <ClInclude Include="game_object.h" />
+    <ClInclude Include="sprite.h" />
     <ClInclude Include="texture.h" />
-    <ClInclude Include="texture_mananger.h" />
     <ClInclude Include="text_manager.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>

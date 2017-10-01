@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	std::unique_ptr<Utils> utils = std::make_unique<Utils>();
 	SDL_Renderer* renderer = utils->init_SDL(TITLE, POS_X, POS_Y, WIDTH, HEIGHT, false);
 
-  std::unique_ptr<Sprite> main_menu_border = std::make_unique<Sprite>(0, 0, 0, 32, 32, renderer);
+  std::unique_ptr<Sprite> main_menu_border = std::make_unique<Sprite>(0, 0, 0, WIDTH, HEIGHT, renderer);
   main_menu_border->load_texture("Art/Static/main_menu_border.png");
 
 	while(is_running)
@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 			is_running = false;
 		}
 
-		SDL_SetRenderDrawColor(renderer, 8, 12, 32, 255);
+		SDL_SetRenderDrawColor(renderer, 8, 82, 82, 255);
 		SDL_RenderClear(renderer);
 
     main_menu_border->render(false);

@@ -33,7 +33,7 @@ SDL_Texture* Sprite::load_texture(const char* SPRITE_PATH)
 
 void Sprite::render(const bool& is_flip)
 {
-  
+  //TODO: take image width and height and scale it based on those values
   SDL_RenderCopyEx(m_renderer,
                    m_texture,
                    NULL,
