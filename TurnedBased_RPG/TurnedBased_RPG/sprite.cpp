@@ -6,8 +6,8 @@ Sprite::Sprite(int pos_x,
                int scale_x,
                int scale_y,
                SDL_Renderer* renderer)
-:Entity(pos_x, pos_y, rotation, scale_x, scale_y),
-m_renderer(renderer)
+	:Entity(pos_x, pos_y, rotation, scale_x, scale_y),
+	m_renderer(renderer)
 {}
 
 Sprite::~Sprite()
