@@ -15,12 +15,17 @@ public:
 		      int scale_y,
 		      SDL_Renderer* renderer);
 	
-	SDL_Texture* load_text(const char* path, const char* message, SDL_Color col, Uint16 range);
+	SDL_Texture* load_text(const char* path,
+						   const int& font_size,
+		                   const char* message,
+		                   SDL_Color col,
+		                   Uint16 range);
 	void render(const bool& is_flip);
 
 private:
 	SDL_Renderer* m_renderer;
 	SDL_Texture* m_texture;
+	SDL_Rect pos;
 };
 
 #endif // TEXT_MESH_H

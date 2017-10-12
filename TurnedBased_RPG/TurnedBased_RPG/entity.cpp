@@ -6,9 +6,8 @@ Entity::Entity(int pos_x,
 			         int scale_w,
 			         int scale_h) 
   :m_entity_transform({ pos_x, pos_y, scale_w, scale_h }),
-	 m_rotation(rotation)
-{
-}
+   m_rotation(rotation)
+{}
 
 void Entity::set_position(const int& x, const int& y)
 {

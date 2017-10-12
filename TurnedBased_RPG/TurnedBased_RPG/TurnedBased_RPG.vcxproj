@@ -146,7 +146,6 @@
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="sprite.cpp" />
-    <ClCompile Include="text_manager.cpp" />
     <ClCompile Include="text_mesh.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
@@ -154,7 +153,6 @@
     <ClInclude Include="entity.h" />
     <ClInclude Include="sprite.h" />
     <ClInclude Include="texture.h" />
-    <ClInclude Include="text_manager.h" />
     <ClInclude Include="text_mesh.h" />
     <ClInclude Include="utils.h" />
   </ItemGroup>
